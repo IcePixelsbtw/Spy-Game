@@ -9,6 +9,8 @@ import UIKit
 
 class NumberPickerViewController: UIViewController {
     
+    var keyForValue: KeysForUserDefaults
+    
     let numbers: [Int] = Array(1...20)
     
     private var pickerView: UIPickerView = {
@@ -17,6 +19,15 @@ class NumberPickerViewController: UIViewController {
         
         return picker
     }()
+    
+    init(keyForValue: KeysForUserDefaults) {
+        self.keyForValue = keyForValue
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +62,12 @@ extension NumberPickerViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(numbers[row])"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("Set a userdefaults value: \(numbers[row]) for key: \(keyForValue) with type: \(type(of: numbers[row]))")
+        UserDefaults.standard.set("\(numbers[row])", forKey: "\(keyForValue)")
+        print(numbers[row])
     }
     
     

@@ -25,6 +25,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) ?? "Error")
+        
         view.backgroundColor = .red
         
         self.tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
@@ -45,32 +48,37 @@ class SettingsViewController: UIViewController {
         
         self.data = [
             
-        SettingRow(label: "Players", currentValue: "0", iconName: "person.fill", handler: { [weak self] in
+            SettingRow(label: "Players",
+                       currentValue: UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) as? String,
+                                                                 iconName: "person.fill",
+                                                                 handler: { [weak self] in
             print("Players")
-            let vc = NumberPickerViewController()
-            
+            let vc = NumberPickerViewController(keyForValue: KeysForUserDefaults.playersCount)
+
             self?.navigationController?.pushViewController(vc, animated: true)
         }),
-        SettingRow(label: "Spy", currentValue: "0", iconName: "shoeprints.fill", handler: { [weak self] in
+        
+        SettingRow(label: "Spy", currentValue: UserDefaults.standard.value(forKey: KeysForUserDefaults.spyCount.rawValue) as? String, iconName: "shoeprints.fill", handler: { [weak self] in
             print("Spy")
-            let vc = NumberPickerViewController()
-            
+            let vc = NumberPickerViewController(keyForValue: KeysForUserDefaults.spyCount)
+
             self?.navigationController?.pushViewController(vc, animated: true)
         }),
-        SettingRow(label: "Collection", currentValue: nil, iconName: "rectangle.stack", handler: { [weak self] in
+        
+        SettingRow(label: "Collection", currentValue: nil, iconName: "rectangle.stack", handler: {
             print("Collection")
-            let vc = NumberPickerViewController()
-            
-            self?.navigationController?.pushViewController(vc, animated: true)
+ //TODO: Create collection screen
         }),
+        
         SettingRow(label: "Language", currentValue: nil, iconName: "globe", handler: {
             print("Language")
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 
         }),
-        SettingRow(label: "Timer", currentValue: "0", iconName: "timer", handler: { [weak self] in
+        
+        SettingRow(label: "Timer", currentValue: UserDefaults.standard.value(forKey: KeysForUserDefaults.timerMinutes.rawValue) as? String, iconName: "timer", handler: { [weak self] in
             print("Timer")
-            let vc = NumberPickerViewController()
+            let vc = NumberPickerViewController(keyForValue: KeysForUserDefaults.timerMinutes)
             
             self?.navigationController?.pushViewController(vc, animated: true)
         })

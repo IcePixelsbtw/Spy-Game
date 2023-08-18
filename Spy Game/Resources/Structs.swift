@@ -15,8 +15,14 @@ struct SettingRow {
 }
 
 struct SettingsForUserDefaults {
-    var playerCount: Int
+    var playersCount: Int
     var spyCount: Int
     var timerMinutes: Int
     
+}
+
+public enum KeysForUserDefaults: String, CaseIterable {
+    case playersCount
+    case spyCount
+    case timerMinutes
 }
