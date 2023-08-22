@@ -11,7 +11,7 @@ class NumberPickerViewController: UIViewController {
     
     var keyForValue: KeysForUserDefaults
     
-    let numbers: [Int] = Array(1...20)
+    let numbers: [Int]
     
     private var pickerView: UIPickerView = {
         let picker = UIPickerView()
@@ -22,6 +22,32 @@ class NumberPickerViewController: UIViewController {
     
     init(keyForValue: KeysForUserDefaults) {
         self.keyForValue = keyForValue
+        let playerCount = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) as! String) ?? 0
+
+        switch keyForValue {
+        case .playersCount:
+            numbers = Array(3...20)
+        case .spyCount:
+            if playerCount <= 5 {
+                numbers = Array(1...2)
+            } else if playerCount > 5 && playerCount <= 10 {
+                numbers = Array(1...3)
+            }
+            else if playerCount > 10 && playerCount <= 15 {
+                numbers = Array(1...7)
+            }
+            else if playerCount > 15 && playerCount <= 20 {
+                numbers = Array(1...10)
+            }
+
+            else {
+                numbers = Array(1...2)
+            }
+        case .timerMinutes:
+            numbers = Array(1...30)
+
+        }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -55,7 +81,7 @@ extension NumberPickerViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return numbers.count
     }
@@ -67,8 +93,42 @@ extension NumberPickerViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("Set a userdefaults value: \(numbers[row]) for key: \(keyForValue) with type: \(type(of: numbers[row]))")
         UserDefaults.standard.set("\(numbers[row])", forKey: "\(keyForValue)")
+        let playerCount = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) as! String) ?? 0
+        let spyCount = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.spyCount.rawValue) as! String) ?? 0
+        
+        if playerCount < spyCount {
+            
+            if keyForValue == .playersCount {
+                if numbers[row] <= 5 {
+                    UserDefaults.standard.set("1", forKey: "\(KeysForUserDefaults.spyCount)")
+                    
+                } else if playerCount > 5 && playerCount <= 10 {
+                    UserDefaults.standard.set("2", forKey: "\(KeysForUserDefaults.spyCount)")
+                }
+                else if playerCount > 10 && playerCount <= 15 {
+                    UserDefaults.standard.set("3", forKey: "\(KeysForUserDefaults.spyCount)")
+                    
+                }
+                else if playerCount > 15 && playerCount <= 20 {
+                    UserDefaults.standard.set("4", forKey: "\(KeysForUserDefaults.spyCount)")
+                    
+                }
+            }
+        }
         print(numbers[row])
     }
-    
-    
 }
+    
+/*
+ 
+ spyCount = 5
+ playerCount = 5
+ spyCount = 2
+ 
+ spyCount = 7
+ playerCount = 5
+ spyCoun
+ 
+ 
+ 
+ */

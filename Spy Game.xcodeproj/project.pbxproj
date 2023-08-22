@@ -19,9 +19,12 @@
 		3A99AE732A8E8E1800A24786 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99AE722A8E8E1800A24786 /* SettingsTableViewCell.swift */; };
 		3A99AE752A8EBE5600A24786 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99AE742A8EBE5600A24786 /* Structs.swift */; };
 		3A99AE772A8EE26C00A24786 /* NumberPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A99AE762A8EE26C00A24786 /* NumberPickerViewController.swift */; };
+		6DCDC385F79E9E3CE4ED19DF /* Pods_Spy_Game.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F27FE09AB282D55AB88BE97 /* Pods_Spy_Game.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11810EE216FD2B2EBEF347CF /* Pods-Spy Game.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spy Game.release.xcconfig"; path = "Target Support Files/Pods-Spy Game/Pods-Spy Game.release.xcconfig"; sourceTree = "<group>"; };
+		2F27FE09AB282D55AB88BE97 /* Pods_Spy_Game.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spy_Game.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A99AE492A8E7C2B00A24786 /* Spy Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spy Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A99AE4C2A8E7C2B00A24786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A99AE4E2A8E7C2B00A24786 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		3A99AE722A8E8E1800A24786 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		3A99AE742A8EBE5600A24786 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		3A99AE762A8EE26C00A24786 /* NumberPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerViewController.swift; sourceTree = "<group>"; };
+		B5C2A51679E8E33BD9C9ED24 /* Pods-Spy Game.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spy Game.debug.xcconfig"; path = "Target Support Files/Pods-Spy Game/Pods-Spy Game.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DCDC385F79E9E3CE4ED19DF /* Pods_Spy_Game.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				3A99AE4B2A8E7C2B00A24786 /* Spy Game */,
 				3A99AE4A2A8E7C2B00A24786 /* Products */,
+				89AE23EE2EF5F207C11C4883 /* Pods */,
+				E99D07CA9CED73EA777284D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +140,23 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		89AE23EE2EF5F207C11C4883 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5C2A51679E8E33BD9C9ED24 /* Pods-Spy Game.debug.xcconfig */,
+				11810EE216FD2B2EBEF347CF /* Pods-Spy Game.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E99D07CA9CED73EA777284D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F27FE09AB282D55AB88BE97 /* Pods_Spy_Game.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A99AE5D2A8E7C2D00A24786 /* Build configuration list for PBXNativeTarget "Spy Game" */;
 			buildPhases = (
+				BF8F7C196A6C6BCCBC23CDF3 /* [CP] Check Pods Manifest.lock */,
 				3A99AE452A8E7C2B00A24786 /* Sources */,
 				3A99AE462A8E7C2B00A24786 /* Frameworks */,
 				3A99AE472A8E7C2B00A24786 /* Resources */,
+				DC13C8440A0A74C95D3C89A0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -198,6 +224,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF8F7C196A6C6BCCBC23CDF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spy Game-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC13C8440A0A74C95D3C89A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spy Game/Pods-Spy Game-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spy Game/Pods-Spy Game-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spy Game/Pods-Spy Game-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A99AE452A8E7C2B00A24786 /* Sources */ = {
@@ -354,6 +422,7 @@
 		};
 		3A99AE5E2A8E7C2D00A24786 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C2A51679E8E33BD9C9ED24 /* Pods-Spy Game.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -384,6 +453,7 @@
 		};
 		3A99AE5F2A8E7C2D00A24786 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11810EE216FD2B2EBEF347CF /* Pods-Spy Game.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

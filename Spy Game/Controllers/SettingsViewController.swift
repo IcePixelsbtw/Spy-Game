@@ -23,9 +23,12 @@ class SettingsViewController: UIViewController {
     
     //MARK: - viewDidLoad
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
+        print("Settings loaded")
+
         print(UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) ?? "Error")
         
         view.backgroundColor = .red
@@ -34,7 +37,7 @@ class SettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "<- Back",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(dismissSelf))
@@ -46,6 +49,21 @@ class SettingsViewController: UIViewController {
         
         
         
+        
+        
+    }
+    @objc private func dismissSelf() {
+        dismiss(animated: true)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.data = [
             
             SettingRow(label: "Players",
@@ -83,16 +101,8 @@ class SettingsViewController: UIViewController {
             self?.navigationController?.pushViewController(vc, animated: true)
         })
         ]
-        
-    }
-    @objc private func dismissSelf() {
-        dismiss(animated: true)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.bounds
-
+        tableView.reloadData()
+        print("Settings appeared")
     }
     
 }

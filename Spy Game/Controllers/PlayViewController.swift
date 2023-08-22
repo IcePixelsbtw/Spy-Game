@@ -9,23 +9,25 @@ import UIKit
 
 class PlayViewController: UIViewController {
 
+    let playerCount = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.playersCount.rawValue) as! String) ?? 0
+    let spyCount = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.spyCount.rawValue) as! String) ?? 0
+    let timerMinutes = Int(UserDefaults.standard.value(forKey: KeysForUserDefaults.timerMinutes.rawValue) as! String) ?? 0
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
-    }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
+                                                           style: .done,
+                                                           target: self,
+                                                           action: #selector(dismissSelf))
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+ 
+    
+    @objc private func dismissSelf() {
+        dismiss(animated: true)
+    
+    }
 
 }

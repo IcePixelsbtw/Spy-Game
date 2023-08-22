@@ -56,10 +56,9 @@ class MainMenuViewController: UIViewController {
                                  action: #selector(didTapSettings),
                                  for: .touchUpInside)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(didTapSettings))
+        playButton.addTarget(self,
+                             action: #selector(didTapPlay),
+                             for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -77,6 +76,14 @@ class MainMenuViewController: UIViewController {
                                       height: 52)
     }
     
+    @objc private func didTapPlay() {
+        print("didTapPlay")
+        let rootVC = PlayViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        
+        navVC.modalPresentationStyle = .fullScreen
+        present(navVC, animated: true)
+    }
     
     @objc private func didTapSettings() {
         print("didTapSettings")
